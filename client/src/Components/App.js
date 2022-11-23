@@ -10,7 +10,7 @@ import Login from "./Login";
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
   const [errors, setErrors] = useState(false)
-  const [stadiums, setStadiums] = useState([])
+  const [fields, setFields] = useState([])
   const [conferences, setConferences] = useState([])
   const [rivalries, setRivalries] = useState([])
   const [search, setSearch] = useState("")
@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     fetch("/fields")
     .then((r) => r.json())
-    .then((data) => setStadiums(data))
+    .then((data) => setFields(data))
   },[])
 
   useEffect(() => {
@@ -53,17 +53,17 @@ function App() {
     })
   }, []);
 
-  function addNewStadium(newStadiumObj){
-    setStadiums([...newStadiumObj])
+  function addNewFields(newFieldObj){
+    setFields([...newFieldObj])
   }
 
   function deleteStadium(deletedStadium){
-    const updatedStadiums = stadiums.filter((stadia) => stadia.id !== deletedStadium.id)
-    setStadiums(updatedStadiums)
+    const updatedStadiums = fields.filter((stadia) => stadia.id !== deletedStadium.id)
+    setFields(updatedStadiums)
   }
 
-  const displayedStadiums = stadiums?.filter((stadia) => {
-    return stadia?.stadium_name?.toLowerCase().includes(search.toLowerCase())
+  const displayedFields = fields?.filter((field) => {
+    return field?.field_name?.toLowerCase().includes(search.toLowerCase())
   })
 
   const updateUser = (user) => setCurrentUser(user)
@@ -72,8 +72,8 @@ function App() {
     <div className="App">
       <NavBar currentUser={currentUser} updateUser = {updateUser}/>
       <Routes>
-        <Route exact path = "/" element={<ConferenceContainer conferences={conferences} rivalries={rivalries} stadiums={displayedStadiums} setSearch={setSearch}/>}/>
-        <Route path = "/UserContainer" element={<UserContainer errors = {errors} addNewStadium={addNewStadium} deleteStadium={deleteStadium} user={currentUser}/>}/>
+        <Route exact path = "/" element={<ConferenceContainer conferences={conferences} rivalries={rivalries} field={displayedFields} setSearch={setSearch}/>}/>
+        <Route path = "/UserContainer" element={<UserContainer errors = {errors} addNewFields={addNewFields} deleteStadium={deleteStadium} user={currentUser}/>}/>
         <Route path = "/Login" element={<Login updateUser={updateUser}/>}/>
         <Route path = "/Signup" element={<Signup updateUser={updateUser}/>}/>
       </Routes>

@@ -1,13 +1,13 @@
 import ConferenceCard from "./ConferenceCard";
 import Search from "./Search";
 
-function ConferenceContainer({conferences, rivalries, stadiums, setSearch}){
+function ConferenceContainer({conferences, rivalries, field, setSearch}){
 
     return(
         <div>
             <Search setSearch={setSearch}/>
             <div className="truePlantCon">
-            {conferences?.map(conference => <ConferenceCard {...conference} conference={conference} key={conference.id} rivalries={rivalries} stadiums={stadiums}/>)}
+            {conferences?.map(conference => <ConferenceCard {...conference} conference={conference} key={conference.id} rivalries={rivalries} field={field}/>)}
             </div>
         </div>
     )

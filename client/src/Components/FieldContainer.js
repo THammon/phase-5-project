@@ -1,10 +1,10 @@
 import FieldCard from "./FieldCard";
 
-function FieldContainer({rivalries, stadiums}){
+function FieldContainer({rivalries, fields}){
 
     return(
         <div>
-            {stadiums?.map(stadium => <FieldCard {...stadium} stadium={stadium} key={stadium.id} rivalries={rivalries}/>)}
+            {fields?.map(field => <FieldCard {...field} field={field} key={field.id} rivalries={rivalries}/>)}
         </div>
     )
 }

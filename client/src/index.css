@@ -13,7 +13,7 @@ code {
 }
 
 .form-container{
-  background-color: #368a45;
+  background-image: linear-gradient(rgb(73, 63, 216), rgb(126, 6, 6));
   border-style: solid;
   border-width: 4px 4px 4px 4px;
   border-color: rgb(3, 3, 3);
@@ -45,11 +45,20 @@ code {
 
 }
 .navigation{
-  background-image: linear-gradient(rgb(2, 255, 56), rgb(47, 167, 21));
+  background-image: linear-gradient(rgb(73, 63, 216), rgb(126, 6, 6));
   padding: 20px;
   box-shadow: 0 8px 6px -6px rgb(6, 119, 51);
   font-size: 20px;
   text-align: center;
+}
+
+.textBar{
+  background-image: linear-gradient(rgb(73, 63, 216), rgb(126, 6, 6));
+  padding: 20px;
+  box-shadow: 0 8px 6px -6px rgb(6, 119, 51);
+  font-size: 20px;
+  text-align: center;
+  color: white
 }
 
 .priImage{
@@ -113,12 +122,16 @@ code {
   padding: 10px;
   text-align: center;
   font-size: 30px;
-  box-shadow: 0 8px 6px -6px black
+  box-shadow: 0 8px 6px -6px black;  
 }
 .searchbartrue{
   font-size: 20px;
   background-color: rgb(47, 167, 21);
   box-shadow: 0 8px 6px -6px rgb(7, 138, 59);
+  color: white;
+}
+
+::placeholder{
   color: white
 }
 .userContainer{

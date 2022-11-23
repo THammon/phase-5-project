@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-function NewFieldForm({addNewStadium, user}){
-    const [newStadiumName, setNewStadiumName] = useState("")
+function NewFieldForm({addNewField, user}){
+    const [newFieldName, setNewFieldName] = useState("")
     const [newTeamName, setNewTeamName] = useState("")
-    const [newStadiumImage, setNewStadiumImage] = useState("")
+    const [newFieldImage, setNewFieldImage] = useState("")
     const [newTeamImage, setNewTeamImage] = useState("")
     const [expandForm, setExpandForm] = useState(false)
     const [errors, setErrors] = useState([]);
@@ -20,24 +20,24 @@ function NewFieldForm({addNewStadium, user}){
     function handleSubmit(e){
         e.preventDefault()
         // setIsLoading(true)
-        const newStadiumObj={
-            stadium_name: newStadiumName,
+        const newFieldObj={
+            field_name: newFieldName,
             team_name: newTeamName,
-            stadium_image: newStadiumImage,
+            field_image: newFieldImage,
             team_image: newTeamImage,
             user_id: parseInt(user.id)
             // conference_id: parseInt(newConference),
             // rivalry_id: parseInt(newRivalry)
         }
-        fetch(`/stadia`, {
+        fetch(`/fields`, {
             method: `POST`,
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(newStadiumObj)
+            body: JSON.stringify(newFieldObj)
         }).then((r) => {
             // setIsLoading(false)
             if (r.ok) {
               r.json().then((user) => {
-               addNewStadium(user)
+               addNewField(user)
                navigate(`/UserContainer`)
           });
             } else {
@@ -47,7 +47,7 @@ function NewFieldForm({addNewStadium, user}){
     }
 
     return(
-        <div className='form-container'>
+        <div className="textBar">
             <h1>Have you been to a stadium that you don't see listed? Add it to your page with the form below!</h1>
             <button className='buttonOtherPretty' onClick={expandedForm}>Click To Show Form</button>
             {expandForm &&
@@ -57,9 +57,9 @@ function NewFieldForm({addNewStadium, user}){
                         <input 
                         className='form-container-input'
                         type="text" 
-                        placeholder="Name of Stadium..." 
-                        value={newStadiumName} 
-                        onChange={(e) => setNewStadiumName(e.target.value)}/>
+                        placeholder="Name of Field..." 
+                        value={newFieldName} 
+                        onChange={(e) => setNewFieldName(e.target.value)}/>
                         <label>Home Team Name</label>
                         <input 
                         className='form-container-input'
@@ -71,9 +71,9 @@ function NewFieldForm({addNewStadium, user}){
                         <input 
                         className='form-container-input'
                         type="text" 
-                        placeholder="URL for Stadium Image..." 
-                        value={newStadiumImage} 
-                        onChange={(e) => setNewStadiumImage(e.target.value)}/>
+                        placeholder="URL for Field Image..." 
+                        value={newFieldImage} 
+                        onChange={(e) => setNewFieldImage(e.target.value)}/>
                         <label>Team Image</label>
                         <input 
                         className='form-container-input'
