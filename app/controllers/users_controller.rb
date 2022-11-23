@@ -20,15 +20,6 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         render json: user, status: :created
     end
-    
-    def update
-        render json: find_user.update!(user_params), status: :accepeted
-    end
-
-    def destroy
-        find_user.destroy
-        head :no_content
-    end
 
     private
 

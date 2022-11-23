@@ -1,4 +1,3 @@
-// client/src/components/App.js
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar"
@@ -63,17 +62,17 @@ function App() {
     setStadiums(updatedStadiums)
   }
 
-  // const displayedStadiums = stadiums?.filter((stadia) => {
-  //   return stadia?.stadium_name?.toLowerCase().includes(search.toLowerCase())
-  // })
+  const displayedStadiums = stadiums?.filter((stadia) => {
+    return stadia?.stadium_name?.toLowerCase().includes(search.toLowerCase())
+  })
 
   const updateUser = (user) => setCurrentUser(user)
 
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar currentUser={currentUser} updateUser = {updateUser}/>
       <Routes>
-        <Route exact path = "/" element={<ConferenceContainer conferences={conferences} rivalries={rivalries} stadiums={stadiums} setSearch={setSearch}/>}/>
+        <Route exact path = "/" element={<ConferenceContainer conferences={conferences} rivalries={rivalries} stadiums={displayedStadiums} setSearch={setSearch}/>}/>
         <Route path = "/UserContainer" element={<UserContainer errors = {errors} addNewStadium={addNewStadium} deleteStadium={deleteStadium} user={currentUser}/>}/>
         <Route path = "/Login" element={<Login updateUser={updateUser}/>}/>
         <Route path = "/Signup" element={<Signup updateUser={updateUser}/>}/>

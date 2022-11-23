@@ -6,7 +6,7 @@ function ConferenceCard({conference, rivalries, stadiums}){
         <div>
             <div><FieldContainer rivalries={rivalries} stadiums={stadiums}/></div>
             <div>{`${conference.name}`}</div>
-            <div>{`${conference.image}`}</div>
+            <img className="pubPlantPic" alt="test" src={conference.image}/>
         </div>
     )
 }
