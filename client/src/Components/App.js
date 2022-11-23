@@ -17,7 +17,7 @@ function App() {
   const [search, setSearch] = useState("")
 
   useEffect(() => {
-    fetch("/stadia")
+    fetch("/fields")
     .then((r) => r.json())
     .then((data) => setStadiums(data))
   },[])

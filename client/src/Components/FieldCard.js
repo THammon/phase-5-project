@@ -1,4 +1,4 @@
-function StadiumCard({rivalries, stadium}){
+function FieldCard({rivalries, stadium}){
 
     return(
         <div>
@@ -11,4 +11,4 @@ function StadiumCard({rivalries, stadium}){
         </div>
     )
 }
-export default StadiumCard;
+export default FieldCard;

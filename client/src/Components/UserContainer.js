@@ -1,10 +1,10 @@
-import NewStadiumForm from "./NewStadiumForm";
+import NewFieldForm from "./NewFieldForm";
 
 function UserContainer({addNewStadium, user}){
 
     return(
         <div>
-            <NewStadiumForm addNewStadium={addNewStadium} user={user}/>
+            <NewFieldForm addNewStadium={addNewStadium} user={user}/>
         </div>
     )
 }

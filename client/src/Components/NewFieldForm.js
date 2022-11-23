@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-function NewStadiumForm({addNewStadium, user}){
+function NewFieldForm({addNewStadium, user}){
     const [newStadiumName, setNewStadiumName] = useState("")
     const [newTeamName, setNewTeamName] = useState("")
     const [newStadiumImage, setNewStadiumImage] = useState("")
@@ -89,4 +89,4 @@ function NewStadiumForm({addNewStadium, user}){
         </div>
     )
 }
-export default NewStadiumForm;
+export default NewFieldForm;

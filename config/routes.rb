@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :fields, only: [:index, :show]
+  resources :fields
   resources :users
   resources :rivalries, only: [:index, :show]
   resources :conferences, only: [:index, :show]
