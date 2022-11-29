@@ -5,6 +5,7 @@ import ConferenceContainer from "./ConferenceContainer"
 import UserContainer from "./UserContainer";
 import Signup from "./Signup";
 import Login from "./Login";
+import FieldContainer from "./FieldContainer";
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
   const [conferences, setConferences] = useState([])
   const [rivalries, setRivalries] = useState([])
   const [search, setSearch] = useState("")
+  const [beenTo, setBeenTo] = useState([])
+  const [wantToGo, setWantToGo] = useState([])
 
   useEffect(() => {
     fetch("/fields")
@@ -57,9 +60,17 @@ function App() {
     setFields([...newFieldObj])
   }
 
-  function deleteStadium(deletedStadium){
-    const updatedStadiums = fields.filter((stadia) => stadia.id !== deletedStadium.id)
-    setFields(updatedStadiums)
+  function addNewConf(newConfObj){
+    setConferences(prev => [...prev, newConfObj])
+  }
+
+  function addNewRival(newRivalObj){
+    setRivalries(prev =>[...prev, newRivalObj])
+  }
+
+  function deleteField(deletedField){
+    const updatedFields = fields.filter((field) => field.id !== deletedField.id)
+    setFields(updatedFields)
   }
 
   const displayedFields = fields?.filter((field) => {
@@ -72,8 +83,9 @@ function App() {
     <div className="App">
       <NavBar currentUser={currentUser} updateUser = {updateUser}/>
       <Routes>
-        <Route exact path = "/" element={<ConferenceContainer conferences={conferences} rivalries={rivalries} field={displayedFields} setSearch={setSearch}/>}/>
-        <Route path = "/UserContainer" element={<UserContainer errors = {errors} addNewFields={addNewFields} deleteStadium={deleteStadium} user={currentUser}/>}/>
+        <Route exact path = "/" element={<ConferenceContainer conferences={conferences} />}/>
+        <Route path = "/UserContainer" element={<UserContainer errors = {errors} fields={currentUser?.fields} addNewFields={addNewFields} deleteField={deleteField} user={currentUser} rivalries={rivalries} conferences={conferences} addNewConf={addNewConf} addNewRival={addNewRival} beenTo={beenTo} wantToGo={wantToGo}/>}/>
+        <Route path = "/fields/:conference" element={<FieldContainer rivalries={rivalries} fields={displayedFields} setSearch={setSearch} beenTo={beenTo} wantToGo={wantToGo} setBeenTo={setBeenTo} setWantToGo={setWantToGo}/>}/>
         <Route path = "/Login" element={<Login updateUser={updateUser}/>}/>
         <Route path = "/Signup" element={<Signup updateUser={updateUser}/>}/>
       </Routes>
