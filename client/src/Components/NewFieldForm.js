@@ -54,7 +54,7 @@ function NewFieldForm({addNewFields, user, rivalries, conferences, addNewConf, a
             if (r.ok) {
               r.json().then((user) => {
                addNewFields(user)
-               navigate(`/BeenTo`)
+               navigate(`/`)
           });
             } else {
               r.json().then((err) => setErrors(err.errors));

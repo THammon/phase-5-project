@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_11_23_001359) do
   create_table "fields", force: :cascade do |t|
     t.string "field_name"
     t.string "team_name"
+    t.integer "visit"
     t.string "field_image"
     t.string "team_image"
     t.integer "user_id", null: false

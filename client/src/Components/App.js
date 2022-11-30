@@ -8,6 +8,7 @@ import Login from "./Login";
 import FieldContainer from "./FieldContainer";
 
 
+
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
   const [errors, setErrors] = useState(false)
@@ -54,7 +55,7 @@ function App() {
         }
     })
     })
-  }, []);
+  },[fields]);
 
   function addNewFields(newFieldObj){
     setFields([...newFieldObj])
@@ -84,8 +85,8 @@ function App() {
       <NavBar currentUser={currentUser} updateUser = {updateUser}/>
       <Routes>
         <Route exact path = "/" element={<ConferenceContainer conferences={conferences} />}/>
-        <Route path = "/UserContainer" element={<UserContainer errors = {errors} fields={currentUser?.fields} addNewFields={addNewFields} deleteField={deleteField} user={currentUser} rivalries={rivalries} conferences={conferences} addNewConf={addNewConf} addNewRival={addNewRival} beenTo={beenTo} wantToGo={wantToGo}/>}/>
-        <Route path = "/fields/:conference" element={<FieldContainer rivalries={rivalries} fields={displayedFields} setSearch={setSearch} beenTo={beenTo} wantToGo={wantToGo} setBeenTo={setBeenTo} setWantToGo={setWantToGo}/>}/>
+        <Route path = "/UserContainer" element={<UserContainer errors = {errors} fields={fields} addNewFields={addNewFields} deleteField={deleteField} user={currentUser} rivalries={rivalries} conferences={conferences} addNewConf={addNewConf} addNewRival={addNewRival} beenTo={beenTo} wantToGo={wantToGo}/>}/>
+        <Route path = "/fields/:conference" element={<FieldContainer rivalries={rivalries} fields={displayedFields} setSearch={setSearch} beenTo={beenTo} wantToGo={wantToGo} setBeenTo={setBeenTo} setWantToGo={setWantToGo} currentUser={currentUser}/>}/>
         <Route path = "/Login" element={<Login updateUser={updateUser}/>}/>
         <Route path = "/Signup" element={<Signup updateUser={updateUser}/>}/>
       </Routes>

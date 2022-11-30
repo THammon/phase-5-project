@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :fields
+    has_many :fields, dependent: :destroy
     has_many :conferences, through: :fields
     has_many :rivalries, through: :fields
     # validates_presence_of :username, :first_name, :last_name

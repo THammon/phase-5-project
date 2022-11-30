@@ -22,7 +22,7 @@ class FieldsController < ApplicationController
     def destroy
         find_fie.destroy
         head :no_content
-      end
+    end
 
     private
 
@@ -31,6 +31,6 @@ class FieldsController < ApplicationController
     end
 
     def field_params
-        params.permit(:field_name, :team_name, :field_image, :team_image, :user_id, :conference_id, :rivalry_id)
+        params.permit(:field_name, :team_name, :visit, :field_image, :team_image, :user_id, :conference_id, :rivalry_id)
     end
 end

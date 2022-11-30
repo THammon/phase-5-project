@@ -1,14 +1,29 @@
-function FieldCard({field, beenTo, wantToGo, setBeenTo, setWantToGo}){
+import React, {useState} from "react";
+
+function FieldCard({field, beenTo, wantToGo, setBeenTo, setWantToGo, currentUser}){
+
+    const [displayRival, setDisplayRival] = useState(false)
+
+    const rivalClick = () => {
+        setDisplayRival((prev) => !prev)
+    }
 
     return(
-        <div className="truePlantCon">
-            <div >{`${field.field_name} Home To The ${field.team_name}`}</div>
-            <img className="pubPlantCard"  alt="test" src={field.field_image}/>
-            <img className="pubPlantCard"  alt="test" src={field.team_image}/>
-            <div>{`Rivalry of this Team Is The ${field.rivalry.rival_team}`}</div>
-            <img className="pubPlantCard"  alt="test" src={field.rivalry.rival_logo}/>
-            <button className='buttonPretty' onClick={() => setBeenTo([...beenTo, field])}>I Have Been Here</button>
-            <button className='buttonPretty' onClick={() => setWantToGo([...wantToGo, field])}>I Want To Go Here</button>
+        <div>
+            <div className="priCard">
+                <div className="fieldName">{`${field.field_name}`}</div>
+                <div className="teamName">{`Home To The ${field.team_name}`}</div>
+                <img className="teamImage" alt="test" src={field.team_image}/>
+                <br/>
+                <img onClick={rivalClick} className="priImage" alt="test" src={field.field_image}/>
+                <div className="archRivalText">{displayRival ? `Arch Rival: ${field.rivalry.rival_team} `: false}</div>
+                 {displayRival ? <img className="teamImage"  alt="test" src={field.rivalry.rival_logo}/> : false}
+                <div>
+                    {currentUser? <button className='buttonPretty' onClick={() => setBeenTo([...beenTo, field])}>I Have Been Here</button> : null}
+                    {currentUser? <button className='buttonPretty' onClick={() => setWantToGo([...wantToGo, field])}>Bucket List</button> : null}
+                </div>
+            </div>
+
         </div>
     )
 }

@@ -33,21 +33,62 @@ code {
   display: block
 }
 
-.priCard{
-  background-image: linear-gradient(rgb(66, 187, 0), rgb(255, 255, 0), rgb(247, 127, 0));
-  padding: 20px;
-  width: 400px;
-  height: 575px;
+.conLogo{
+  height: 275px;
+  width: 375px;
+}
+
+.conCard{
+  background-image: linear-gradient(rgb(73, 63, 216), rgb(126, 6, 6));
+  padding: 45px;
+  width: 450px;
+  height: 310px;
   text-align: center;
   font-size: 25px;
   border-radius: 1rem;
   box-shadow: 0 8px 6px -6px rgb(6, 119, 51);
-
 }
+
+.conContainer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  row-gap: 250px;
+  margin-left: 4%;
+  margin-top: 3%;
+}
+
+.teamImage{
+  height: 50px;
+  width: auto;
+  text-align: center;
+}
+
+.searchbar{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 8px 6px -6px black;  
+}
+
+.searchbartrue{
+  font-size: 20px;
+  background-color: rgb(84, 21, 167);
+  box-shadow: 0 8px 6px -6px rgb(138, 7, 7);
+  color: white;
+}
+
+.dropdown{
+  font-size: 20px;
+  width: 99%;
+}
+
 .navigation{
   background-image: linear-gradient(rgb(73, 63, 216), rgb(126, 6, 6));
   padding: 20px;
-  box-shadow: 0 8px 6px -6px rgb(6, 119, 51);
+  box-shadow: 0 8px 6px -6px rgb(64, 6, 119);
   font-size: 20px;
   text-align: center;
 }
@@ -55,16 +96,57 @@ code {
 .textBar{
   background-image: linear-gradient(rgb(73, 63, 216), rgb(126, 6, 6));
   padding: 20px;
-  box-shadow: 0 8px 6px -6px rgb(6, 119, 51);
+  box-shadow: 0 8px 6px -6px rgb(55, 6, 119);
   font-size: 20px;
   text-align: center;
   color: white
 }
 
+.pubButton:hover{
+  background: linear-gradient(#ef027d, #ff5bb0);
+}
+
+.fieldName{
+  color: white;
+  font-size: 55px;
+}
+
+.teamName{
+  color: white;
+  font-size: 30px;
+}
+
+.archRivalText{
+  color: white;
+  font-size: 20px;
+}
+
+
+
+
+/* Old Code Below */
+
+
+
+
+
+.priCard{
+  background-image: linear-gradient(rgb(73, 63, 216), rgb(126, 6, 6));
+  padding: 1px;
+  width: 850px;
+  height: 600px;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 1rem;
+  box-shadow: 0 8px 6px -6px rgb(6, 119, 51);
+
+}
+
 .priImage{
-  height: 400px;
+  height: 350px;
   width: auto;
 }
+
 .navbtn{
   font-size: 30px;
   width:140px;
@@ -116,31 +198,20 @@ code {
   row-gap: 300px;
   margin-left: 5%
 }
-.searchbar{
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 0 8px 6px -6px black;  
-}
-.searchbartrue{
-  font-size: 20px;
-  background-color: rgb(47, 167, 21);
-  box-shadow: 0 8px 6px -6px rgb(7, 138, 59);
-  color: white;
-}
+
+
 
 ::placeholder{
   color: white
 }
 .userContainer{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 200px;
   row-gap: 450px;
   margin-left: 7%;
   margin-top: 1%;
+  margin-bottom:450px;
 }
 .plantTitle{
   margin: auto;
@@ -205,10 +276,7 @@ code {
   width: 90%;
   padding: 10px 25px;
 }
-.dropdown{
-  font-size: 20px;
-  width: 99%;
-}
+
 .errors{
   color: rgb(255, 140, 140)
 }
@@ -220,18 +288,18 @@ code {
   height:50px;
   border-width:1px;
   color:#ffffff;
-  border-color:#74b807;
+  border-color:#b80707;
   font-weight:bold;
   border-top-left-radius:6px;
   border-top-right-radius:6px;
   border-bottom-left-radius:6px;
   border-bottom-right-radius:6px;
-  box-shadow:inset 0px 1px 0px 0px #a4e271;
-  text-shadow:inset 0px 1px 0px #528009;
-  background:linear-gradient(#89c403, #77a809);
+  box-shadow:inset 0px 1px 0px 0px #9c71e2;
+  text-shadow:inset 0px 1px 0px #230980;
+  background:linear-gradient(#c40303, #2c09a8);
 }
 .buttonPretty:hover{
-  background: linear-gradient(#77a809, #89c403);
+  background: linear-gradient(#a80909, #c4039a);
 }
 
 .nameDiv{
@@ -258,12 +326,12 @@ code {
   border-top-right-radius:4px;
   border-bottom-left-radius:4px;
   border-bottom-right-radius:4px;
-  box-shadow: 0px 10px 14px -7px #3e7327;
-  text-shadow: 0px 1px 0px #5b8a3c;
-  background:linear-gradient(#77b55a, #72b352);
+  box-shadow: 0px 10px 14px -7px #732727;
+  text-shadow: 0px 1px 0px #8a3c3c;
+  background:linear-gradient(#6b5ab5, #b35252);
 }
 .buttonOtherPretty:hover{
-  background: linear-gradient(#68a54b, #74ad5a);
+  background: linear-gradient(#a54b4b, #ad5aa6);
 }
 .pubButton{
   font-size:15px;
@@ -281,7 +349,4 @@ code {
   box-shadow:inset 0px 1px 0px 0px #fbafe3;
   text-shadow:inset 0px 1px 0px #c70067;
   background:linear-gradient(#ff5bb0, #ef027d);
-}
-.pubButton:hover{
-  background: linear-gradient(#ef027d, #ff5bb0);
 }

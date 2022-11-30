@@ -26,10 +26,10 @@ function ConferenceCard({conference}){
     // }
 
     return(
-        <div>
+        <div className='conCard'>
             <img
             onClick={navigateToFieldContainer} 
-            className="pubPlantCard" 
+            className="conLogo" 
             alt="test" 
             src={conference.image}/>
         </div>
