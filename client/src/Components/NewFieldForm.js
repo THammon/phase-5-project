@@ -112,7 +112,7 @@ function NewFieldForm({addNewFields, user, rivalries, conferences, addNewConf, a
     }
 
     return(
-        <div className="textBar">
+        <div className="form-container">
             <h1>Have you been to a stadium that you don't see listed? Add it to your page with the form below!</h1>
             <button className='buttonOtherPretty' onClick={expandedForm}>Click To Show Form</button>
             {expandForm &&
@@ -169,7 +169,7 @@ function NewFieldForm({addNewFields, user, rivalries, conferences, addNewConf, a
                 {errors? <div>{errors}</div>:null} 
                 </div>
             }
-
+            <br/>
             <button className='buttonOtherPretty' onClick={expandFormRivalry}>New Rivalry</button>
             <button className='buttonOtherPretty' onClick={expandFormConferences}>New Conference</button>
             {expandRivalry && 

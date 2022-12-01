@@ -10,7 +10,7 @@ function FieldCard({field, beenTo, wantToGo, setBeenTo, setWantToGo, currentUser
 
     return(
         <div>
-            <div className="priCard">
+            <div className="fieldCard">
                 <div className="fieldName">{`${field.field_name}`}</div>
                 <div className="teamName">{`Home To The ${field.team_name}`}</div>
                 <img className="teamImage" alt="test" src={field.team_image}/>

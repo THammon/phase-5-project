@@ -10,7 +10,7 @@ function FieldContainer({rivalries, fields, setSearch, beenTo, setBeenTo, wantTo
     return(
         <div>
             <Search setSearch={setSearch}/>
-            <div className="userContainer">
+            <div className="fieldCont">
                 {conferenceFields?.map(field => <FieldCard {...field} field={field} key={field.id} rivalries={rivalries} beenTo={beenTo} wantToGo={wantToGo} setBeenTo={setBeenTo} setWantToGo={setWantToGo} currentUser={currentUser}/>)}
             </div>
         </div>
