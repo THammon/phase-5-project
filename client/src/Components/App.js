@@ -37,6 +37,20 @@ function App() {
     .then((data) => setConferences(data))
   },[])
 
+  // useEffect(() => {
+  //   fetch(`/fields/${currentUser.id}`)
+  //   // fetch("/fields")
+  //   .then((r) => r.json())
+  //   .then((data) => setBeenTo(data))
+  // },[])
+
+  // useEffect(() => {
+  //   // fetch(`/fields/${currentUser.id}`)
+  //   fetch("/fields")
+  //   .then((r) => r.json())
+  //   .then((data) => setWantToGo(data))
+  // },[])
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -69,10 +83,7 @@ function App() {
     setRivalries(prev =>[...prev, newRivalObj])
   }
 
-  function deleteField(deletedField){
-    const updatedFields = fields.filter((field) => field.id !== deletedField.id)
-    setFields(updatedFields)
-  }
+
 
   const displayedFields = fields?.filter((field) => {
     return field?.field_name?.toLowerCase().includes(search.toLowerCase())
@@ -85,7 +96,7 @@ function App() {
       <NavBar currentUser={currentUser} updateUser = {updateUser}/>
       <Routes>
         <Route exact path = "/" element={<ConferenceContainer conferences={conferences} />}/>
-        <Route path = "/UserContainer" element={<UserContainer errors = {errors} fields={fields} addNewFields={addNewFields} deleteField={deleteField} user={currentUser} rivalries={rivalries} conferences={conferences} addNewConf={addNewConf} addNewRival={addNewRival} beenTo={beenTo} wantToGo={wantToGo}/>}/>
+        <Route path = "/UserContainer" element={<UserContainer errors = {errors} fields={fields} addNewFields={addNewFields} user={currentUser} rivalries={rivalries} conferences={conferences} addNewConf={addNewConf} addNewRival={addNewRival} beenTo={beenTo} wantToGo={wantToGo}/>}/>
         <Route path = "/fields/:conference" element={<FieldContainer rivalries={rivalries} fields={displayedFields} setSearch={setSearch} beenTo={beenTo} wantToGo={wantToGo} setBeenTo={setBeenTo} setWantToGo={setWantToGo} currentUser={currentUser}/>}/>
         <Route path = "/Login" element={<Login updateUser={updateUser}/>}/>
         <Route path = "/Signup" element={<Signup updateUser={updateUser}/>}/>

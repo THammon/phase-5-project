@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_23_001359) do
+ActiveRecord::Schema.define(version: 2022_12_02_152118) do
 
   create_table "conferences", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2022_11_23_001359) do
   create_table "rivalries", force: :cascade do |t|
     t.string "rival_team"
     t.string "rival_logo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_fields", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "field_id"
+    t.boolean "visited"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

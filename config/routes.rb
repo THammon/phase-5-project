@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :fields
+  resources :user_fields
   resources :users
   resources :rivalries, only: [:index, :show, :create]
   resources :conferences, only: [:index, :show, :create]

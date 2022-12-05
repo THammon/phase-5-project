@@ -8,6 +8,41 @@ function FieldCard({field, beenTo, wantToGo, setBeenTo, setWantToGo, currentUser
         setDisplayRival((prev) => !prev)
     }
 
+    function handleBeenTo(){
+        fetch(`/user_fields`, {
+            method: `POST`,
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                visited: true,
+                field_id: field.id,
+            })
+        }).then((r) => {
+            // setIsLoading(false)
+            if (r.ok) {
+              r.json().then((data) => {
+                setBeenTo([...beenTo, field])
+              });
+            }
+        })
+    }
+
+    function handleWantToGo(){
+        fetch(`/user_fields`, {
+            method: `POST`,
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                visited: false,
+                field_id: field.id,
+            })
+        }).then((r) => {
+            // setIsLoading(false)
+            if (r.ok) {
+              r.json().then((data) => {
+                setWantToGo([...beenTo, field])
+              });
+            }
+        })
+    }
     return(
         <div>
             <div className="fieldCard">
@@ -19,8 +54,8 @@ function FieldCard({field, beenTo, wantToGo, setBeenTo, setWantToGo, currentUser
                 <div className="archRivalText">{displayRival ? `Arch Rival: ${field.rivalry.rival_team} `: false}</div>
                  {displayRival ? <img className="teamImage"  alt="test" src={field.rivalry.rival_logo}/> : false}
                 <div>
-                    {currentUser? <button className='buttonPretty' onClick={() => setBeenTo([...beenTo, field])}>I Have Been Here</button> : null}
-                    {currentUser? <button className='buttonPretty' onClick={() => setWantToGo([...wantToGo, field])}>Bucket List</button> : null}
+                    {currentUser? <button className='buttonPretty' onClick={() => handleBeenTo()}>I Have Been Here</button> : null}
+                    {currentUser? <button className='buttonPretty' onClick={() => handleWantToGo()}>Bucket List</button> : null}
                 </div>
             </div>
 

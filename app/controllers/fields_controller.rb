@@ -16,7 +16,8 @@ class FieldsController < ApplicationController
     end
 
     def update
-        render json: find_fie.update!(field_params), status: :accepted
+        find_fie.update!(field_params)
+        render json: find_fie, status: :accepted
     end
 
     def destroy
