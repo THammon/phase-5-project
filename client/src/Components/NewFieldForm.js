@@ -190,7 +190,7 @@ function NewFieldForm({addNewFields, user, rivalries, conferences, addNewConf, a
                             placeholder="Rival Logo URL" 
                             value={newRivalLogo} 
                             onChange={(e) => setNewRivalLogo(e.target.value)}/>
-                            <button type='submit' className='buttonPretty'>Add Your Species</button>
+                            <button type='submit' className='buttonPretty'>Add Your Teams Rival</button>
                         </form>
                         {isLoading ? "Loading..." : null}
                     </div>
@@ -213,7 +213,7 @@ function NewFieldForm({addNewFields, user, rivalries, conferences, addNewConf, a
                             placeholder="Conference Image URL" 
                             value={newConfImage} 
                             onChange={(e) => setNewConfImage(e.target.value)}/>
-                            <button type='submit' className='buttonPretty'>Add Your Species</button>
+                            <button type='submit' className='buttonPretty'>Add Your Teams Conference</button>
                         </form>
                         {isLoading ? "Loading..." : null}
                     </div>

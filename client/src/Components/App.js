@@ -37,20 +37,6 @@ function App() {
     .then((data) => setConferences(data))
   },[])
 
-  // useEffect(() => {
-  //   fetch(`/fields/${currentUser.id}`)
-  //   // fetch("/fields")
-  //   .then((r) => r.json())
-  //   .then((data) => setBeenTo(data))
-  // },[])
-
-  // useEffect(() => {
-  //   // fetch(`/fields/${currentUser.id}`)
-  //   fetch("/fields")
-  //   .then((r) => r.json())
-  //   .then((data) => setWantToGo(data))
-  // },[])
-
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -69,7 +55,7 @@ function App() {
         }
     })
     })
-  },[fields]);
+  }, [fields]);
 
   function addNewFields(newFieldObj){
     setFields([...newFieldObj])

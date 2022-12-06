@@ -9,22 +9,6 @@ function ConferenceCard({conference}){
         navigate(`/fields/${conference.name}`)
     }
 
-    // const navigateToSEC = () => {
-    //     navigate('fields/SEC')
-    // }
-    // const navigateToACC = () => {
-    //     navigate('/ACC')
-    // }
-    // const navigateToBig12 = () => {
-    //     navigate('/Big12')
-    // }
-    // const navigateToBig10 = () => {
-    //     navigate('/Big10')
-    // }
-    // const navigateToPac12 = () => {
-    //     navigate('/Pac12')
-    // }
-
     return(
         <div className='conCard'>
             <img

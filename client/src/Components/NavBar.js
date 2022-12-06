@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import React, {useState} from "react";
+import FootballFandomHeader from "../pics/FootballFandomHeader.png"
 
 function NavBar({currentUser, updateUser}){
     const[isLoading, setIsLoading] = useState(false)
@@ -19,6 +20,8 @@ function NavBar({currentUser, updateUser}){
 
     return(
         <nav className="navigation">
+            <img src={FootballFandomHeader} alt="FootballFandomHeader"></img>
+            <div></div>
             <NavLink className={"navbtn"} to = "/">Home</NavLink>
             {currentUser?<NavLink className={"navbtn"} to = "/UserContainer">Profile Page</NavLink>:null}
             {!currentUser? <NavLink className={"navbtn"} to = "/login">Login/SignUp</NavLink>:

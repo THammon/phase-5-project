@@ -25,14 +25,13 @@ function UserContainer({fields, addNewFields, user, rivalries, conferences, addN
     console.log(displayBeenTo)
     return(
         <div>
-        <div className="textBar">{`Welcome ${user.first_name}🏈`}</div>
-        <div className="textUserBar">Stadiums I Have Been Too</div>
-        
+        <div className="WelcomeBar">{`Welcome ${user.first_name}🏈`}</div>
+        <div className="textUserBar">I Have Been Too</div>        
         <div className="userCont">
             {displayBeenTo.map(field => <UserCard field= {field.field} visited={true}/>)}
         </div>
         
-        <div className="textUserBar">Stadiums I Want To Go Too</div>
+        <div className="textUserBar">My Stadium Bucket List</div>
         <div className="userCont">{displayWantToGo.map(field => <UserCard field= {field.field} visited={false} deleteField={deleteField}/>)}
         </div>
         <div>
